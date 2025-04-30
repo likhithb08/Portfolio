@@ -5,6 +5,7 @@ import {
   FaCode,
   FaPalette,
   FaServer,
+  FaArrowDown,
 } from "react-icons/fa";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
@@ -27,7 +28,7 @@ export default function Portfolio() {
         <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} />
-  
+
         {/* Red Sphere */}
         <mesh position={[-4, 0, 0]}>
           <sphereGeometry args={[3, 30, 30]} />
@@ -52,20 +53,23 @@ export default function Portfolio() {
       description:
         "Complete branding package including logo, color scheme, and typography",
       tags: ["Logo Design", "Brand Identity"],
-      image: "/coffee-shop.jpg",
+      image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+      link: "#",
     },
     {
-      title: "Fitness App Dashboard",
+      title: "Freelancer Landing Page",
       description:
         "Interactive dashboard with real-time analytics for fitness tracking",
       tags: ["React", "Chart.js", "Tailwind"],
-      image: "/fitness-dash.jpg",
+      image: "https://cdn2.vectorstock.com/i/1000x1000/94/41/freelance-landing-page-layout-female-freelancer-vector-28299441.jpg",
+      link: "https://freelancer-landing-page-chi.vercel.app/",
     },
     {
       title: "Tech Startup Website",
       description: "Modern landing page with 3D elements and smooth animations",
       tags: ["Three.js", "GSAP", "Responsive"],
-      image: "/tech-startup.jpg",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80",
+      link: "#",
     },
   ];
 
@@ -220,7 +224,6 @@ export default function Portfolio() {
               </div>
             </div>
           </motion.div>
-          
         </section>
 
         {/* Skills Section */}
@@ -288,20 +291,29 @@ export default function Portfolio() {
                   className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700 hover:border-red-500/50 transition-all"
                 >
                   <div className="h-48 bg-gradient-to-r from-red-900/30 to-gray-800 relative overflow-hidden">
-                    <motion.div
-                      className="absolute inset-0 bg-gray-700"
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 0.3 }}
                       transition={{ duration: 0.3 }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white/20">
-                        {index + 1}
-                      </span>
-                    </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <FaArrowDown className="text-red-400" />
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="block"
+                    >
+                      
+                      <h3 className="text-xl font-bold mb-2">
+                       {project.title}</h3>
+                    </motion.a>
                     <p className="text-gray-300 mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
@@ -363,6 +375,7 @@ export default function Portfolio() {
                   <input
                     type="text"
                     placeholder="Your Name"
+                    name="name"
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
@@ -370,6 +383,7 @@ export default function Portfolio() {
                   <input
                     type="email"
                     placeholder="Your Email"
+                    name="email"
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
@@ -377,6 +391,7 @@ export default function Portfolio() {
                   <textarea
                     placeholder="Your Message"
                     rows="4"
+                    name="message"
                     className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
                   ></textarea>
                 </div>
