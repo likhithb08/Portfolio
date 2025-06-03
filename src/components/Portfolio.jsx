@@ -10,6 +10,8 @@ import {
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { useRef } from "react";
+import ContactSection from "../sections/ContactSection";
+import FooterSection from '../sections/FooterSection'
 
 export default function Portfolio() {
   const ref = useRef(null);
@@ -46,7 +48,7 @@ export default function Portfolio() {
     { name: "Node.js", level: 80 },
     { name: "Logo Design", level: 90 },
   ];
-
+  
   const projects = [
     {
       title: "Coffee Shop Branding",
@@ -66,10 +68,10 @@ export default function Portfolio() {
     },
     {
       title: "Tech Startup Website",
-      description: "Modern landing page with 3D elements and smooth animations",
-      tags: ["Three.js", "GSAP", "Responsive"],
+      description: "Modern landing page with smooth animations",
+      tags: ["React", "Tailwind Css", "Responsive"],
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80",
-      link: "#",
+      link: "https://e-not-zz.vercel.app",
     },
   ];
 
@@ -94,9 +96,9 @@ export default function Portfolio() {
 
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-red-500 z-50"
+        className="relative top-0 left-0 right-0 h-1 bg-red-500 z-50"
         style={{ scaleX: pathLength }}
-      />
+      ></motion.div>
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -189,7 +191,7 @@ export default function Portfolio() {
             </div>
             <div className="relative h-80">
               <motion.div
-                className="absolute inset-0 bg-red-500/10 rounded-xl border border-red-500/30"
+                className="relative inset-0 bg-red-500/10 rounded-xl border border-red-500/30"
                 animate={{
                   x: [-10, 10, -10],
                   y: [-5, 5, -5],
@@ -203,7 +205,7 @@ export default function Portfolio() {
                 }}
               />
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-xl"
+                className="relativce inset-0 bg-gradient-to-br from-red-500/20 to-transparent rounded-xl"
                 animate={{
                   x: [10, -10, 10],
                   y: [5, -5, 5],
@@ -216,7 +218,7 @@ export default function Portfolio() {
                   ease: "easeInOut",
                 }}
               />
-              <div className="absolute inset-0 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 flex items-center justify-center">
+              <div className="relative inset-0 bg-gray-800/80 rounded-xl backdrop-blur-sm border border-gray-700 flex items-center justify-center">
                 <p className="text-gray-300 px-8 text-center">
                   "I believe in creating digital experiences that are intuitive,
                   engaging, and memorable."
@@ -294,7 +296,7 @@ export default function Portfolio() {
                     <motion.img
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="reative inset-0 w-full h-full object-cover"
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 0.3 }}
                       transition={{ duration: 0.3 }}
@@ -331,94 +333,16 @@ export default function Portfolio() {
             </div>
           </motion.div>
         </section>
+        
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 text-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-red-400">
-              Let's Work Together
-            </h2>
-            <p className="text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
-              Have a project in mind or want to discuss potential opportunities?
-              I'd love to hear from you.
-            </p>
-            <div className="flex justify-center gap-6 mb-12">
-              <motion.a
-                href="https://www.linkedin.com/in/likhith-b-1a7364242"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="bg-blue-600 hover:bg-blue-700 w-14 h-14 rounded-full flex items-center justify-center"
-              >
-                <FaLinkedin size={24} />
-              </motion.a>
-              <motion.a
-                href="https://github.com/likhithb08"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="bg-gray-800 hover:bg-gray-700 w-14 h-14 rounded-full flex items-center justify-center"
-              >
-                <FaGithub size={24} />
-              </motion.a>
-            </div>
-            <div className="max-w-md mx-auto bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-              <form>
-                <div className="mb-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    name="name"
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    name="email"
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-                  />
-                </div>
-                <div className="mb-4">
-                  <textarea
-                    placeholder="Your Message"
-                    rows="4"
-                    name="message"
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
-                  ></textarea>
-                </div>
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-all"
-                >
-                  Send Message
-                </motion.button>
-              </form>
-            </div>
-          </motion.div>
-        </section>
+        <ContactSection></ContactSection>
+        
       </div>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-gray-400 border-t border-gray-800">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          © {new Date().getFullYear()} Likhith B. All rights reserved.
-        </motion.p>
-      </footer>
+              <FooterSection />
+              
     </div>
   );
 }
