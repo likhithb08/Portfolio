@@ -67,7 +67,7 @@ export default function Portfolio() {
       link: "https://freelancer-landing-page-chi.vercel.app/",
     },
     {
-      title: "Tech Startup Website",
+      title: "E-NotZZ Service Page",
       description: "Modern landing page with smooth animations",
       tags: ["React", "Tailwind Css", "Responsive"],
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80",
