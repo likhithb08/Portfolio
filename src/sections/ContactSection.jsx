@@ -42,7 +42,7 @@ const ContactSection = () => {
             </motion.a>
           </div>
           <div className="max-w-md mx-auto bg-gray-800/50 p-8 rounded-xl border border-gray-700">
-            <form>
+            <form action="https://formspree.io/f/xyzjjpjy" method="POST">
               <div className="mb-4">
                 <input
                   type="text"
