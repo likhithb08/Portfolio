@@ -18,9 +18,7 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="text-gray-300 mb-6 text-lg">
-              I'm a full-stack developer and brand designer with 3+ years of
-              experience creating digital products that users love. My approach
-              combines technical expertise with aesthetic sensibility to deliver
+              I'm a full-stack developer and brand designer, creating digital products with clean UI. My approach combines technical expertise to deliver
               solutions that are both functional and beautiful.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
